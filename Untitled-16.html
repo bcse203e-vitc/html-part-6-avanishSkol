@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array Without .sort()</title>
+    <script>
+        function bubbleSort(arr) {
+            const n = arr.length;
+            for (let i = 0; i < n - 1; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        const temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+        function displaySortedArray() {
+            const inputArray = [64, 34, 25, 12, 22, 11, 90]; 
+            const sortedArray = bubbleSort(inputArray);
+            document.getElementById("result").innerText = "Sorted array: " + sortedArray.join(", ");
+        }
+    </script>
+</head>
+<body onload="displaySortedArray()">
+    <p id="result"></p>
+</body>
+</html>

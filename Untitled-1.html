@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Two Variables</title>
+    <script>
+        function swapValues() {
+            let a = parseFloat(document.getElementById("valueA").value);
+            let b = parseFloat(document.getElementById("valueB").value);
+            
+            console.log("Before Swap: a =", a, "b =", b);
+
+            a = a + b; 
+            b = a - b;
+            a = a - b;
+
+            console.log("After Swap: a =", a, "b =", b);
+            
+            document.getElementById("resultA").innerText = a;
+            document.getElementById("resultB").innerText = b;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label for="valueA">Value A:</label>
+        <input type="number" id="valueA" required>
+    </div>
+    <div>
+        <label for="valueB">Value B:</label>
+        <input type="number" id="valueB" required>
+    </div>
+    <button onclick="swapValues()">Swap Values</button>
+    
+    <p>Value A: <span id="resultA"></span></p>
+    <p>Value B: <span id="resultB"></span></p>
+</body>
+</html>

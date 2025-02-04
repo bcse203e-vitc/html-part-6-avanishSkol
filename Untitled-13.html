@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Smallest and Second Largest Finder</title>
+    <script>
+        function findSecondSmallestAndLargest(arr) {
+            const uniqueSortedArray = [...new Set(arr)].sort((a, b) => a - b);
+            
+            if (uniqueSortedArray.length < 2) {
+                return {
+                    secondSmallest: null,
+                    secondLargest: null
+                };
+            }
+
+            return {
+                secondSmallest: uniqueSortedArray[1],
+                secondLargest: uniqueSortedArray[uniqueSortedArray.length - 2]
+            };
+        }
+
+        function displayResult() {
+            const inputArray = document.getElementById('inputArray').value.split(',').map(Number);
+            const result = findSecondSmallestAndLargest(inputArray);
+            const secondSmallest = result.secondSmallest !== null ? result.secondSmallest : "Not enough unique numbers";
+            const secondLargest = result.secondLargest !== null ? result.secondLargest : "Not enough unique numbers";
+            document.getElementById('result').innerText = `Second Smallest: ${secondSmallest}\nSecond Largest: ${secondLargest}`;
+        }
+    </script>
+</head>
+<body>
+    <label for="inputArray">Enter numbers (comma-separated):</label>
+    <input type="text" id="inputArray" placeholder="e.g. 4, 2, 9, 1, 5, 6">
+    <button onclick="displayResult()">Find</button>
+    <h2 id="result"></h2>
+</body>
+</html>

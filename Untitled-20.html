@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Count</title>
+    <script>
+        function countCharacters(str) {
+            const charCount = {};
+            for (let char of str) {
+                charCount[char] = (charCount[char] || 0) + 1;
+            }
+
+            return charCount; 
+        }
+        function displayCharacterCount() {
+            const inputString = document.getElementById("inputString").value;
+            const result = countCharacters(inputString);
+            document.getElementById("result").innerText = JSON.stringify(result);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="inputString" placeholder="Enter a string" />
+    <button onclick="displayCharacterCount()">Count Characters</button>
+    <p id="result"></p>
+</body>
+</html>
